@@ -1,0 +1,34 @@
+<% if @user %>
+<h2>Submit a new song, <%= @user.username %>?</h2>
+<div class="login-container">
+	<div class="newsongbox">
+		<form  style="height: 240px" method="POST" action="/newsong">
+		<input name="title" placeholder="Enter the Title" class="password" required />
+		<input name="artist" placeholder="Enter the Artist" class="username" required />
+		<input name="link" placeholder="Embed a video!" class="password" />
+    <input name="submit" class="btn" type="submit" value="Send" />
+		</form>
+	</div>
+</div>
+<% else %>
+<p>Login?</p>
+<% end %>
+
+<% @songs.each do |song| %>
+<p>Track: <%= song.title  %>, <%= song.artist  %>
+</p>
+<iframe type="text/html" 
+    width="320" 
+    height="192" 
+    src="<%= song.link %>"
+    frameborder="0">
+</iframe>
+<p>
+	Uploaded By: <%= song.user %>, on: <% song.created_at %>
+</p>
+
+
+<%end%>
+
+<hr/>
+<a href="/">Back to Home</a>

@@ -3,6 +3,11 @@
 	src: url('/webfonts/blackjack_regular_macroman');
 }
 
+body {
+	background: url('http://poprox.co.uk/wp-content/uploads/2013/10/green-crowd-banner.png') no-repeat center center fixed;
+	background-size: cover;
+}
+
 .title {
 	text-align: center;
 	font-family: BlackJack;
@@ -10,18 +15,23 @@
 }
 
 #mainsplash {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   overflow: hidden;
   background-size: cover;
-  background-position: center center; 
+  background-position: center center fixed; 
 }
 
 .signinbox {
 	position: absolute;
 	width: 100%;
 	height: 100%;
+
+}
+
+.submitbox {
+	vertical-align: bottom;
 
 }
 

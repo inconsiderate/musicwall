@@ -87,6 +87,16 @@ a {
   background: transparent;
 }
 
+a:link {
+  color: #121212;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #121212;
+  text-decoration: none;
+}
+
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
  */
