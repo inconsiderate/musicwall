@@ -1,8 +1,7 @@
 <% if @user %>
-<h2>Submit a new song, <%= @user.username %>?</h2>
-<div class="login-container">
-	<div class="newsongbox">
-		<form  style="height: 240px" method="POST" action="/newsong">
+<div id="slideout"><img src="https://cdn1.iconfinder.com/data/icons/interface-3/24/Previous-512.png" class="resize"/>
+	<div id="slideout_inner">
+		<form style="height: 240px" method="POST" action="/newsong">
 		<input name="title" placeholder="Enter the Title" class="password" required />
 		<input name="artist" placeholder="Enter the Artist" class="username" required />
 		<input name="link" placeholder="Embed a video!" class="password" />
@@ -10,25 +9,25 @@
 		</form>
 	</div>
 </div>
+<h2 style= "text-align:right">Hello, <%= @user.username %></h2>
 <% else %>
 <p>Login?</p>
 <% end %>
 
-<% @songs.each do |song| %>
-<p>Track: <%= song.title  %>, <%= song.artist  %>
-</p>
-<iframe type="text/html" 
-    width="320" 
-    height="192" 
-    src="<%= song.link %>"
-    frameborder="0">
-</iframe>
-<p>
-	Uploaded By: <%= song.user %>, on: <% song.created_at %>
-</p>
-
-
-<%end%>
+<div id="videoframe">
+	<% @songs.each do |song| %>
+	<div class="singlevideo">
+		<div class="videname"><%= song.title %>, <%= song.artist %>
+	Uploaded By: <%= song.user %>, on <%= song.created_at %></div>
+			<iframe type="text/html" 
+    	width="320" 
+    	height="192" 
+    	src="<%= song.link %>"
+    	frameborder="0">
+		</iframe>
+	</div>
+	<%end%>
+</div>
 
 <hr/>
 <a href="/">Back to Home</a>
